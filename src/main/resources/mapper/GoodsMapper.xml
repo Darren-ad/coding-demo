@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.darren.mapper.GoodsMapper">
+
+    <resultMap id="baseResultMap" type="cn.darren.pojo.Goods">
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="TITLE" jdbcType="VARCHAR" property="title"/>
+        <result column="IMG_URL" jdbcType="VARCHAR" property="imgUrl"/>
+        <result column="PRICE" jdbcType="DECIMAL" property="price"/>
+        <result column="BALANCE" jdbcType="INTEGER" property="balance"/>
+        <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+        <result column="BEGIN_TIME" jdbcType="TIMESTAMP" property="beginTime"/>
+        <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime"/>
+    </resultMap>
+
+    <select id="queryAll" resultMap="baseResultMap">
+        select * from GOODS
+    </select>
+    
+    <select id="queryById" resultMap="baseResultMap">
+        select * from GOODS where ID=#{id}
+    </select>
+
+
+</mapper>

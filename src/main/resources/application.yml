@@ -1,0 +1,24 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /demo
+
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/common_temp?serverTimezone=Asia/Shanghai&useSSL=false&characterEncoding=utf8&useUnicode=true
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 1
+      max-wait: 60000
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
